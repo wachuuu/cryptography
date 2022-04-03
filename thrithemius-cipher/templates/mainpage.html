@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h3>Szyfr Trithemiusa</h3>
+
+<p>
+  Autorem tego szyfru jest niemiecki mnich Johannes Trithemius, żyjący na przełomie XV i XVI wieku. Opisał go w swojej księdze Polygraphia opublikowanej w roku 1508. Praca ta jest uważana za jedną z pierwszych poświęconych w całości zagadnieniom kryptologii.
+</p>
+
+<a href="{{ url_for('about') }}"> Czytaj dalej &rArr;</a>
+
+<div class="forms-container">
+  <div class="form">
+    <div>
+      <form method="POST" action="">
+        {{ enc_form.hidden_tag() }}
+        <div>
+          <small>Wiadomość</small>
+          {{ enc_form.enc_message(class="form-input",  placeholder="Wpisz tekst do zaszyfrowania") }}
+        </div>
+        <div>
+          <small>Klucz</small>
+          {{ enc_form.step(class="form-input") }}
+        </div>
+        <div>
+          {{ enc_form.submit(class="button") }}
+        </div>
+      </form>
+    </div>
+    {% if enc_output %}
+    <div class="output-container">
+      <div>Wynik:</div>
+      <div class="output">
+        <strong>{{ enc_output }}</strong>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+
+  <div class="form">
+    <div>
+      <form method="POST" action="">
+        {{ dec_form.hidden_tag() }}
+        <div>
+          <small>Wiadomość</small>
+          {{ dec_form.dec_message(class="form-input", placeholder="Wpisz tekst do odszyfrowania") }}
+        </div>
+        <div>
+          <small>Klucz</small>
+          {{ dec_form.step(class="form-input") }}
+        </div>
+        <div>
+          {{ dec_form.submit(class="button") }}
+        </div>
+      </form>
+    </div>
+    {% if dec_output %}
+    <div class="output-container">
+      <div>Wynik:</div>
+      <div class="output">
+        <strong>{{ dec_output }}</strong>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

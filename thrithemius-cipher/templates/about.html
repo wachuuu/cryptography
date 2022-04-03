@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h3>Szyfr Trithemiusa</h3>
+<a href="{{ url_for('main') }}">&lArr; Powrót</a>
+
+<div>
+
+  <h4>Zasada działania</h4>
+  <p>
+    Autorem tego szyfru jest niemiecki mnich Johannes Trithemius, żyjący na przełomie XV i XVI wieku. Opisał go w swojej
+    księdze Polygraphia opublikowanej w roku 1508. Praca ta jest uważana za jedną z pierwszych poświęconych w całości
+    zagadnieniom kryptologii.
+  </p>
+  <p>
+    Jest to modyfikacja szyfru Cezara, w której kolejne litery tekstu jawnego
+    są kodowane z użyciem innego alfabetu, przesuniętego o kolejną literę względem
+    oryginalnego alfabetu. Zatem jest to jeden z pierwszych szyfrów polialfabetycznych.
+  </p>
+
+  <p>
+    Szyfr Trithemius'a był jednym z wielu, który miał na celu stworzenie wygodnego w użyciu szyfru wieloalfabetowego.
+    Zamiast losowych przekształceń alfabetów, Trithemius zaproponował użycie tablicy, nazwanej później z łaciny
+    <i>tabula
+      recta.</i>
+  </p>
+
+  <div class="image-container">
+    <img src="{{url_for('static', filename='tabula_recta.png')}}" />
+    <small>zdj. Tabula Recta</small>
+  </div>
+
+  <p>
+    Zawiera ona w pierwszym wierszu litery alfabetu w oryginalnej kolejności, a następnie w każdym kolejnym wierszu
+    litery alfabetu przesunięte o jedną kolejną pozycję w lewo. Cała tablica ma wymiary 26x26 (gdzie 26 to liczba liter
+    w alfabecie łacińskim).
+  </p>
+
+  <p>
+    Algorytm szyfru przewiduje, że w miejsce kolejnych liter tekstu jawnego podstawia odpowiednie litery z kolejnych
+    wierszów tablicy. Po dojściu do ostatniego wierwsza, przechodzi się z powrotem do pierwszego wiersza. Każda litera
+    tekstu jawnego jest więc zwiększana o ilość pozycji wynikającą z aktualnego wiersza. Pierwsza litera szyfrowana jest
+    bez przesunięcia, druga z przesunięciem wskazanym przez drugi wiersz (a więc o jedną pozycję), trzecia z
+    przesunięciem wskazanym przez trzeci wiersz (czyli o dwie pozycje), itd.
+  </p>
+
+  <div class="image-container">
+    <img src="{{url_for('static', filename='przyklad.png')}}" />
+    <small>Przykład działania szyfru - Zakodowanie słowa <strong>ISKRA</strong></small>
+  </div>
+
+  <h4>Siła szyfru</h4>
+  <p>
+    Klasyczny szyfr Trithemiusa nie posiada sekretnego klucza (sekretnego słowa), które zabezpiecza szyfrogram. Dla odgadnięcia
+    treści zakodowanej wiadomości wystarczy wiedzieć, że użyty został właśnie ten szyfr.
+  </p>
+
+  <h4>Wprowadzone modyfikacje</h4>
+  <p>
+    W tej implementacji szyfru Trithemiusa rozszerzono alfabet szyfru tak, aby pokrywał on większość znaków tablicy ASCII.
+    Zamiast standardowych 26 liter alfabetu łacińskiego posiadamy aż 95 znaków wliczając w to symbole, znaki interpunkcyjne, 
+    cyfry, duże i małe litery itd.
+  </p>
+
+  <p>
+    Wspomniano wcześniej, że szyfr Trithemiusa nie posiada sekretnego klucza. W tym przypadku wprowadzono takowy klucz. Zamiast
+    przechodzenia o jeden wiersz niżej w <i>Tabula Recta</i>, użytkownik może zadeklarować o ile wierszy należy przejść aby zakodować
+    kolejną literę. 
+  </p>
+
+</div>
+
+{% endblock %}
