@@ -12,7 +12,7 @@ $> python main.py
 - `main.py` - main script where you can encrypt and decrypt files
 - `cipher.py` - implementation of stream cipher
 - `bbs.py` - Blum Blum Shub algorithm for pseudo-random bit streams
-- `utils.py` - utilitie for managing data and operating on bitstrings
+- `utils.py` - utilities for managing data and operating on bitstrings
 
 #### auxilliary files:
 - `logs.txt` - file that stores logs and parameters of the cipher, you can provide additional description and save BBS settings for later
