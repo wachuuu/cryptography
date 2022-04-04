@@ -1,0 +1,54 @@
+Plik: 20k_1.txt
+	Test pojedynczych bitow
+		0:10044, 1: 9956
+		SPEŁNIONY
+
+	Test serii
+		serie dla 0: [2547, 1252, 598, 322, 147, 166]
+		serie dla 1: [2580, 1234, 615, 310, 135, 158]
+		SPEŁNIONY
+
+	Test dlugiej serii
+		max seria: 19
+		SPEŁNIONY
+
+	Test pokerowy
+		wartosc funkcji: 9.408000000000357
+		SPEŁNIONY
+
+Plik: 20k_2.txt
+	Test pojedynczych bitow
+		0:10175, 1: 9825
+		SPEŁNIONY
+
+	Test serii
+		serie dla 0: [2455, 1230, 670, 311, 164, 171]
+		serie dla 1: [2542, 1243, 649, 307, 112, 149]
+		SPEŁNIONY
+
+	Test dlugiej serii
+		max seria: 18
+		SPEŁNIONY
+
+	Test pokerowy
+		wartosc funkcji: 11.564800000000105
+		SPEŁNIONY
+
+Plik: 20k_3.txt
+	Test pojedynczych bitow
+		0:10044, 1: 9956
+		SPEŁNIONY
+
+	Test serii
+		serie dla 0: [2547, 1252, 598, 322, 147, 166]
+		serie dla 1: [2580, 1234, 615, 310, 135, 158]
+		SPEŁNIONY
+
+	Test dlugiej serii
+		max seria: 19
+		SPEŁNIONY
+
+	Test pokerowy
+		wartosc funkcji: 9.408000000000357
+		SPEŁNIONY
+
