@@ -1,0 +1,20 @@
+time: Sun Apr  3 12:24:27 2022
+info: encrypted xd.txt
+p: 611531	q: 571147	seed: 62906738335
+
+time: Sun Apr  3 12:24:37 2022
+info: encrypted xd.txt
+p: 2018827	q: 574363	seed: 760951331884
+
+time: Sun Apr  3 12:33:02 2022
+info: encrypted and dectrpted xd.txt
+p: 350087	q: 417379	seed: 127879458143
+
+time: Sun Apr  3 12:47:32 2022
+info: encrypted input.txt
+p: 313679	q: 891311	seed: 191164931961
+
+time: Sun Apr  3 12:47:33 2022
+info: decrypted ciphertext.txt and saved in decrypted.txt
+p: 313679	q: 891311	seed: 191164931961
+
