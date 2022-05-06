@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h1>Steganografia</h1>
+<a href="{{ url_for('main') }}">&lArr; Powrót</a>
+<p>Steganografia to nauka o komunikacji w taki sposób, by obecność komunikatu nie mogła zostać wykryta. W odróżnieniu od kryptografii (gdzie obecność komunikatu nie jest negowana, natomiast jego treść jest niejawna) steganografia próbuje ukryć fakt prowadzenia komunikacji</p>
+<p>Do ukrycia wiadomości tekstowej w obrazie wykorzystany został jeden z najpopularniejszych algorytmów steganograficznego - algorytmu najmniej znaczącego bitu</p>
+<h3>Algorytm najmniej znaczącego bitu</h3>
+<p>Algorytm ten polega na zakodowaniu wiadomości na najmniej znaczących bitach odpowiednich wartości RGB każdego piksela. Zmiana wartości koloru o 1 w kanale jest praktycznie niezauważalna, dzięki czemu osoba nie wiedząca o ukrytej wiadomości będzie myślała, że to zwykłe zdjęcie</p>
+<p>Zakładając, że kodujemy wiadomość tylko na ostatnim bicie, każdy piksel może przechowywać trzy bity wiadomości. Oznacza to, że maksymalna długość wiadomości jaką możemy umieścić w pliku graficznym jest równa rozdzielczości (długość x szerokość) pomnożonej trzykrotnie. W zaimplementowanym tu algorytmie, pierwsze 24 bity wiadomości przeznaczone są na liczbę informującą o długości zapisanej dalej wiadomości. Wynika z tego, że w naszym przypadku maksymalna długość wiadomości zostaje nieznacznie zmiejszona</p>
+<p>Zapis wykonywany jest od lewej do prawej, rozpoczynając w lewym górnym rogu</p>
+{% endblock %}

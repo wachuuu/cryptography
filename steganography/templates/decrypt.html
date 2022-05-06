@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block content %}
+  <a href="{{ url_for('main') }}">&lArr; Powrót</a>
+  <div class="actions-container">
+    <div class="form">
+      <div>
+        <form method="POST" action="">
+          {{ form.hidden_tag() }}
+          <div>
+            <small>Ścieżka do pliku</small>
+            {{ form.filepath(class="form-input", placeholder="podaj ścieżkę do pliku") }}
+          </div>
+          <div>
+            {{ form.usebbs() }} Dodatkowe szyfrowanie
+          </div>
+          <div>
+            <small>Szyfr - wartość p</small>
+            {{ form.pfield(class="form-input", placeholder="podaj wartość p") }}
+          </div>
+          <div>
+            <small>Szyfr - wartość q</small>
+            {{ form.qfield(class="form-input", placeholder="podaj wartość q") }}
+          </div>
+          <div>
+            <small>Szyfr - wartość ziarna/seed</small>
+            {{ form.seedfield(class="form-input", placeholder="podaj wartość seed") }}
+          </div>
+          <div>
+            {{ form.submit(class="button") }}
+          </div>
+        </form>
+      </div>
+    </div>
+    {% if output %}
+    <div class="output">
+      <div>Encrypted message:</div>
+      {{ output }}
+    </div>
+    {% endif %}
+    {% if error %}
+    <div class="output">
+      <div style="color: red;">Error: {{ error }}</div>
+    </div>
+    {% endif %}
+  </div>
+{% endblock %}

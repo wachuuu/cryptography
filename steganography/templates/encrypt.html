@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% block content %}
+  <a href="{{ url_for('main') }}">&lArr; Powrót</a>
+  <div class="actions-container">
+    <div class="form">
+      <div>
+        <form method="POST" action="">
+          {{ form.hidden_tag() }}
+          <div>
+            <small>Ścieżka do pliku w formacie .png lub .bmp</small>
+            {{ form.filepath(class="form-input", placeholder="podaj ścieżkę do pliku") }}
+          </div>
+          <div>
+            <small>Wiadomość</small>
+            {{ form.message(class="form-input") }}
+          </div>
+          <div>
+            {{ form.debug() }} Tryb podglądu
+          </div>
+          <div>
+            {{ form.usebbs() }} Dodatkowe szyfrowanie
+          </div>
+          <div>
+            {{ form.submit(class="button") }}
+          </div>
+        </form>
+      </div>
+    </div>
+    {% if output %}
+    <div class="output">
+        {% if settings %}
+        <div> {{ settings }} </div>
+        {% endif %}
+        <img src="{{ url_for('static', filename=output) }}">
+        <div>
+          {{ output }}
+        </div>
+        <a href="{{ url_for('static', filename=output) }}" download="{{ output }}">
+          pobierz 
+        </a>
+
+    </div>
+    {% endif %}
+    {% if error %}
+    <div class="output">
+      <div style="color: red;">Error: {{ error }}</div>
+    </div>
+    {% endif %}
+  </div>
+{% endblock %}

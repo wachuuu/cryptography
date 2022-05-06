@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Steganografia</h1>
+<p>To nauka o komunikacji w taki sposób, by obecność komunikatu nie mogła zostać wykryta. W odróżnieniu od kryptografii (gdzie obecność komunikatu nie jest negowana, natomiast jego treść jest niejawna) steganografia próbuje ukryć fakt prowadzenia komunikacji</p>
+<a href="{{ url_for('about') }}"> Czytaj dalej &rArr;</a>
+
+  <div style="display: flex; justify-content: center;">
+    <a class="button" style="color: white;" href="{{ url_for('encrypt') }}">Zaszyfruj wiadomosć</a>
+    <a class="button" style="color: white;" href="{{ url_for('decrypt') }}">Odszyfruj wiadomość z obrazu</a>
+  </div>
+
+  <small style="color: gray;">Gabriel Wachowski, 145275</small>
+{% endblock %}
