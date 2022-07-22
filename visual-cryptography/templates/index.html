@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Kryptografia wizualna</h1>
+<p>Ideą kryptografii wizualnej jest możliwość bezpiecznego zaszyfrowania informacji będącej obrazem – może być to skan dokumentu, zdjęcie czy zapis pisma odręcznego, którą odszyfrować można patrząc na nią.</p>
+<a href="{{ url_for('about') }}"> Czytaj dalej &rArr;</a>
+
+  <div style="display: flex; justify-content: center;">
+    <a class="button" style="color: white;" href="{{ url_for('encrypt') }}">Rozbij obraz na udziały</a>
+    <a class="button" style="color: white;" href="{{ url_for('decrypt') }}">Połącz udziały w jeden obraz</a>
+  </div>
+
+  <small style="color: gray;">Gabriel Wachowski, 145275</small>
+{% endblock %}

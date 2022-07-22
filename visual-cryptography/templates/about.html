@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h1>Kryptografia wizualna</h1>
+<a href="{{ url_for('main') }}">&lArr; Powrót</a>
+<p>Ideą kryptografii wizualnej jest możliwość bezpiecznego zaszyfrowania informacji będącej obrazem – może być to skan dokumentu, zdjęcie czy zapis pisma odręcznego, którą odszyfrować można patrząc na nią.</p>
+
+<p>Na konferencji Eurocrypt94 Naor i Shamir opisali sposób kodowania czarno-białych obrazów przy pomocy n udziałów. Dekodowanie odbywa się za pomocą wzroku, gdy przeźroczyste folie z udziałami nakłada się na siebie. Zaproponowano kilka schematów takiego kodowania.</p>
+
+<h3>Przykład kodowania - rozbicie jednego piksela na cztery inne na dwóch udziałach</h3>
+<div style="display: flex; justify-content: center;">
+  <div>
+    <img src="{{ url_for('static', filename='udzialy.png') }}" height="500px">
+    <div style="text-align: center;">Możliwości rozbicia jednego piksela na cztery piksele udziałów</div>
+  </div>
+</div>
+
+<h3>Przykład działania algorytmu</h3>
+<p>Posiadamy czarno białe zdjęcie które chcemy rozbić na dwa udziały, tylko i wyłącznie posiadając oba udziały można odczytać co znajduje się na obrazku</p>
+<div style="display: flex; justify-content: center;">
+  <div>
+    <img src="{{ url_for('static', filename='toencrypt_example.png') }}" height="500px">
+    <div style="text-align: center;">Obraz przed zaszyfrowaniem (330 x 426)px</div>
+  </div>
+</div>
+<br>
+<br>
+<p>Tak wyglądają udziały, nie da się z nich nic odczytac, przyponiają losowy szum</p>
+
+<div style="display: flex; justify-content: center;">
+  <div>
+    <img src="{{ url_for('static', filename='share1_example.png') }}" height="500px" style="margin-right: 3rem;">
+    <div style="text-align: center;">Pierwszy udział (660 x 852)px</div>
+  </div>
+  <div>
+    <img src="{{ url_for('static', filename='share2_example.png') }}" height="500px">
+    <div style="text-align: center;">Drugi udział (660 x 852)px</div>
+  </div>
+</div>
+
+<br>
+<br>
+<p>Po nałożeniu jednak prezentuje nam się obraz</p>
+
+<div style="display: flex; justify-content: center;">
+  <div>
+    <img src="{{ url_for('static', filename='decrypted_example.png') }}" height="500px">
+    <div style="text-align: center;">Obraz po nałożeniu na siebie udziałów (660 x 852)px</div>
+  </div>
+</div>
+{% endblock %}

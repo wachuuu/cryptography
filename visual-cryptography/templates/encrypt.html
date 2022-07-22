@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Rozbij obraz</h1>
+<a href="{{ url_for('main') }}">&lArr; Powrót</a>
+<div class="actions-container">
+  <div class="form">
+    <div>
+      <form method="POST" action="" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <div>
+          <small>Plik w formacie .png lub .bmp</small>
+          {{ form.photo() }}
+        </div>
+        <div>
+          {% for error in form.photo.errors %}
+          <span style="color: red;">Error: {{ error }}</span>
+          {% endfor %}
+        </div>
+        {{ form.submit(class="button") }}
+      </form>
+    </div>
+  </div>
+
+  {% if file1 %}
+  <div class="output">
+    <div class="img-container">
+      <div>Pierwszy udział</div>
+      <img src="{{ url_for('static', filename=file1) }}">
+      <a href="{{ url_for('static', filename=file1) }}" download="{{ file1 }}">
+        pobierz
+      </a>
+    </div>
+    <div class="img-container">
+      <div>Drugi udział</div>
+      <img src="{{ url_for('static', filename=file2) }}">
+      <a href="{{ url_for('static', filename=file2) }}" download="{{ file2 }}">
+        pobierz
+      </a>
+    </div>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

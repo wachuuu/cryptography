@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Połącz obrazy</h1>
+<a href="{{ url_for('main') }}">&lArr; Powrót</a>
+<div class="actions-container">
+  <div class="form">
+    <div>
+      <form method="POST" action="" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <div>
+          <small>Pliki w formacie .png lub .bmp</small>
+          {{ form.photo_1() }}
+          {{ form.photo_2() }}
+        </div>
+        <div>
+          {% for error in form.photo_1.errors %}
+          <span style="color: red;">Error: {{ error }}</span>
+          {% endfor %}
+          {% for error in form.photo_2.errors %}
+          <span style="color: red;">Error: {{ error }}</span>
+          {% endfor %}
+        </div>
+        {{ form.submit(class="button") }}
+      </form>
+    </div>
+  </div>
+
+  {% if file %}
+  <div class="output">
+    <div class="img-container" style="max-width: 700px;">
+      <div>Wynik</div>
+      <img src="{{ url_for('static', filename=file) }}" style="height: 700px; width: 700px;">
+      <a href="{{ url_for('static', filename=file) }}" download="{{ file }}">
+        pobierz
+      </a>
+    </div>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}
